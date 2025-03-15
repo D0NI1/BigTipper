@@ -8,8 +8,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Discord Webhook URL (Replace with your actual webhook URL)
-const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1350251017496957109/bEn6cyL5yKvJyo774dCTyIxG599UXWqDxAKT5M2VY4qgjN6aCTvr0Ap5h2cWp1Lq5gYb';
-
+const DISCORD_WEBHOOK_URL = 'https://discord.com/api/webhooks/1350245727317655583/6X6A8Ig7bVxbV2BnciPvwOfiR0RG9VGNXEgPkjMHztYeunXtm7TlOVWjiew1B53aMZDZ';
 // Middleware
 app.use(bodyParser.json()); // Parse JSON request bodies
 app.use(cors()); // Enable CORS for all routes
