@@ -29,7 +29,7 @@ function buildEmbed(teamName, player1, player2, player3) {
       url: 'https://i.imgur.com/c0io11d.jpg', // Tournament image
     },
     footer: {
-      text: 'Big Tipper Tourneys',
+      text: 'Big Tipper Tourneys(Website:https://d0ni1.github.io/BigTipper)',
       icon_url: 'https://i.imgur.com/ugKGUQA.png', // Footer icon
     },
     timestamp: new Date().toISOString(), // Add timestamp
