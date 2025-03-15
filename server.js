@@ -26,7 +26,7 @@ function buildEmbed(teamName, player1, player2, player3) {
       { name: '> **Player 2**', value: player2, inline: false },
       { name: '> **Player 3**', value: player3, inline: false },
     ],
-    thumbnail: {
+    image: {
       url: 'https://i.imgur.com/c0io11d.jpg', // Tournament image
     },
     footer: {
