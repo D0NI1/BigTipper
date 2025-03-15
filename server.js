@@ -21,10 +21,10 @@ function buildEmbed(teamName, player1, player2, player3) {
     description: 'A new team has registered for the tournament!',
     color: 0xFFA500, // Orange color
     fields: [
-      { name: '> **Team Name**', value: teamName, inline: true },
-      { name: '> **Player 1**', value: player1, inline: true },
-      { name: '> **Player 2**', value: player2, inline: true },
-      { name: '> **Player 3**', value: player3, inline: true },
+      { name: '> **Team Name**', value: teamName, inline: false },
+      { name: '> **Player 1**', value: player1, inline: false },
+      { name: '> **Player 2**', value: player2, inline: false },
+      { name: '> **Player 3**', value: player3, inline: false },
     ],
     thumbnail: {
       url: 'https://i.imgur.com/c0io11d.jpg', // Tournament image
