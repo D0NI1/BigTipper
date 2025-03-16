@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang='en-US'>
+<head>
+  <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+  <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/poppins-v20-latin-regular-ac6d71b4d5fdd2b3dabc9a06ff6c001e4251da0b.woff2' rel='preload' type='font/woff2'>
+  <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/poppins-v20-latin-600-179f97ec0275f09603a8db94d4380eb584d81cd5.woff2' rel='preload' type='font/woff2'>
+  <link rel="stylesheet" href="https://assets.exercism.org/assets/website-194df9b86b49e4c1f7ffee035f77ff2f45178ad3.css" data-turbo-track="reload" />
+  <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/poppins-v20-latin-500-0da2d17e738f46d2a09e6fb7969da451719a9820.woff2' rel='preload' type='font/woff2'>
+  <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/poppins-v20-latin-700-cb726212d5d525021752a1d8470a0fb593e0c49e.woff2' rel='preload' type='font/woff2'>
+  <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/source-code-pro-v22-latin_latin-ext-regular-ac7e13e27e17f830518f9899f1928cb5bfde3c3b.woff2' rel='preload' type='font/woff2'>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @font-face {
+      font-display: fallback;
+      font-family: PoppinsInitial;
+      font-weight: 400;
+      src: url(https://assets.exercism.org/assets/poppins-v20-latin-regular-ac6d71b4d5fdd2b3dabc9a06ff6c001e4251da0b.woff2) format('woff2');
+    }
+  </style>
+  <style>
+    @font-face {
+      font-display: fallback;
+      font-family: PoppinsInitial;
+      font-weight: 500;
+      src: url(https://assets.exercism.org/assets/poppins-v20-latin-600-179f97ec0275f09603a8db94d4380eb584d81cd5.woff2) format('woff2');
+    }
+  </style>
+  <style>
+    @font-face {
+      font-display: fallback;
+      font-family: PoppinsInitial;
+      font-weight: 600;
+      src: url(https://assets.exercism.org/assets/poppins-v20-latin-600-179f97ec0275f09603a8db94d4380eb584d81cd5.woff2) format('woff2');
+    }
+  </style>
+  <style>
+    @font-face {
+      font-display: fallback;
+      font-family: PoppinsInitial;
+      font-weight: 700;
+      src: url(https://assets.exercism.org/assets/poppins-v20-latin-600-179f97ec0275f09603a8db94d4380eb584d81cd5.woff2) format('woff2');
+    }
+  </style>
+  <style>
+    body {
+      --body-font: Poppins, PoppinsInitial, sans-serif;
+      font-family: var(--body-font);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Style for Join Discord Button */
+    .btn-discord {
+      background-color: #7289DA; /* Discord's brand color */
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+
+    /* Style for Theme Toggler Button */
+    .btn-theme {
+      background-color: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+ 
+    /* Dark Theme Styles */
+    body.theme-dark {
+      background-color: black;
+      color: orange;
+    }
+
+    body.theme-dark header {
+      background-color: #333;
+      color: orange;
+    }
+
+    body.theme-dark a {
+      color: orange;
+    }
+
+    body.theme-dark .btn-discord {
+      background-color: #5865F2; /* Slightly darker Discord color for dark theme */
+    }
+
+    
+
+    /* Dropdown Menu */
+    .dropdown-menu {
+      display: none; /* Hidden by default */
+      position: absolute;
+      top: 100%; /* Position below the parent */
+      left: 0;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      padding: 16px;
+      min-width: 200px;
+      z-index: 1000; /* Ensure it appears above other content */
+    }
+
+    .dropdown-menu .dropdown-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 8px 0;
+      color: #475569;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .dropdown-menu .dropdown-item:hover {
+      background-color: #f9fafb; /* Light background on hover */
+    }
+
+    .dropdown-menu .dropdown-item i {
+      font-size: 18px;
+      
+    }
+
+    .dropdown-menu .dropdown-item .title {
+      font-weight: 600;
+      color: #1e293b; /* Title color */
+    }
+
+    .dropdown-menu .dropdown-item .description {
+      font-size: 14px;
+      color: #64748b; /* Description color */
+    }
+
+    /* Show dropdown on hover */
+    header#site-header nav ul li:hover .dropdown-menu {
+      display: block;
+    }
+
+    /* Icons in Navigation */
+    .nav-element-link i {
+      margin-right: 5px; /* Reduced margin to bring icons closer to text */
+      font-size: 18px; /* Slightly larger icons */
+      vertical-align: middle; /* Align icons with text */
+    }
+
+    .nav-element-link {
+      display: flex;
+      align-items: center; /* Align icon and text vertically */
+      padding: 10px 15px; /* Add padding for better spacing */
+    }
+
+      /* Tournament Cards */
+      .results-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 20px;
+        
+      }
+  
+      .results-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 30px;
+       
+      }
+  
+      .performance-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+       
+      }
+  
+      .performance-card {
+        background: #353839;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px; /* Wider box */
+        overflow: hidden;
+      }
+  
+      .performance-card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+  
+      .performance-card .card-content {
+        padding: 20px;
+        text-align: center;
+      }
+  
+      .performance-card .card-title {
+        font-size: 1.5rem;
+        color: orange;
+        margin-bottom: 10px;
+      }
+  
+      .performance-card .card-info {
+        font-size: 1rem;
+        color: orange;
+        margin-bottom: 15px;
+      }
+  
+      .performance-card .card-info span {
+        display: block;
+        margin-bottom: 5px;
+      }
+  
+      .performance-card .team-roster {
+        text-align: left;
+        margin-top: 15px;
+      }
+  
+      .performance-card .team-roster strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+  
+      .performance-card .view-details {
+        display: block;
+        margin-top: 10px;
+        padding: 10px 15px;
+        background: orange;
+        color: black;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background 0.3s;
+        text-align: center;
+      }
+  
+      .performance-card .view-details:hover {
+        background: orangered;
+      }
+  
+    </style>
+    <style>
+
+body.theme-dark {
+  background-color: black;
+  color: orange;
+}
+
+body.theme-dark header {
+  background-color: black;
+  color: orange;
+}
+
+body.theme-dark a {
+  color: orange;
+}
+
+body.theme-dark .btn-discord {
+  background-color: #5865F2; /* Slightly darker Discord color for dark theme */
+  color: white;
+}
+
+body.theme-dark .performance-card {
+  background: #000; /* Darker background for cards */
+  color: orange;
+}
+
+body.theme-dark .performance-card .card-title,
+body.theme-dark .performance-card .card-info {
+  color: orange;
+}
+
+body.theme-dark .view-details {
+  background: rgb(216, 141, 1);
+  color: black;
+}
+
+body.theme-dark .view-details:hover {
+  background: orangered;
+  color: black;
+}
+
+body.theme-light {
+  background-color: white;
+  color: black;
+}
+
+body.theme-light header {
+  background-color: white;
+  color: black;
+}
+
+body.theme-light a {
+  color: black;
+}
+
+body.theme-light .btn-discord {
+  background-color: #7289DA; /* Discord's brand color */
+  color: white;
+}
+
+body.theme-light .performance-card {
+  background: #f9fafb; /* Light background for cards */
+  color: black;
+}
+
+body.theme-light .performance-card .card-title,
+body.theme-light .performance-card .card-info {
+  color: black;
+}
+
+body.theme-light .view-details {
+  background: black;
+  color: white;
+}
+
+body.theme-light .view-details:hover {
+  background: #333; /* Darker background on hover */
+  color: white;
+}
+    </style>
+  <script src="https://assets.exercism.org/assets/landing-8cfd9542effc63d95eab20ecca79a1cdcf7432f1.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false" defer="defer"></script>
+  <script async data-api='/usage/api/event' data-domain='exercism.org' src='/usage/js/script.js'></script>
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="0GqdWM7TNiuplJ-pFDMpzojwWCc6CUoA2-YriSiXDeP00UGTaPvhUiDvp_CrwRMH_aT_VE8nMN_vehQ7zpD2_Q" />
+  <meta content='no-cache' name='turbo-cache-control'>
+  <title>Big Tipper Tourneys</title>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='description'>
+  <meta content='width=device-width, initial-scale=1, viewport-fit=cover' name='viewport'>
+  <meta content='summary_large_image' name='twitter:card'>
+  <meta content='@bigtippertourneys' name='twitter:site'>
+  <meta content='@bigtippertourneys' name='twitter:creator'>
+  <meta content='https://bigtippertourneys.com' name='twitter:url'>
+  <meta content='Big Tipper Tourneys' name='twitter:title'>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='twitter:description'>
+  <meta content='https://i.imgur.com/ugKGUQA.png' name='twitter:image'>
+  <meta content='Big Tipper Tourneys' property='og:title'>
+  <meta content='website' property='og:type'>
+  <meta content='https://bigtippertourneys.com' property='og:url'>
+  <meta content='https://i.imgur.com/ugKGUQA.png' property='og:image'>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' property='og:description'>
+  <meta content='Big Tipper Tourneys' property='og:site_name'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='apple-touch-icon' sizes='180x180'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='32x32' type='image/png'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='16x16' type='image/png'>
+  <link href='/site.webmanifest' rel='manifest'>
+  <link href='https://bigtippertourneys.com/blog.rss' rel='alternate' title='Big Tipper Tourneys Blog' type='application/rss+xml'>
+</head>
+
+<body class='namespace- controller-pages action-index theme-light user-signed_out'>
+  <header id="site-header">
+    <div class="lg-container container">
+      <a class="exercism-link xl:block" data-turbo-frame="tf-main" href="index.html">
+        <img alt="Big Tipper" class="icon" src="https://i.imgur.com/ugKGUQA.png" width="65" height="20" />
+      </a>
+      <nav role="navigation">
+        <ul>
+          <li class="nav-element">
+            <a tabindex="0" role="none" class="nav-element-link nav-element-focusable" href="index.html">
+              <i class="fas fa-home"></i> <!-- Home Icon -->
+              <span tabindex="-1" role="none" class="nav-element-label">Home</span>
+            </a>
+          </li>
+          <li class="nav-element">
+            <a tabindex="0" role="none" class="nav-element-link nav-element-focusable" href="tournaments.html">
+              <i class="fas fa-trophy"></i> <!-- Tournaments Icon -->
+              <span tabindex="-1" role="none" class="nav-element-label">Tournaments</span>
+            </a>
+          </li>
+          <li class="nav-element dropdown">
+            <a tabindex="0" role="none" class="nav-element-link nav-element-focusable" href="tournament-history.html">
+              <i class="fas fa-history"></i> <!-- Tournament History Icon -->
+              <span tabindex="-1" role="none" class="nav-element-label">Tournament History</span>
+            </a>
+          
+            <!-- Dropdown Menu -->
+            <div class="dropdown-menu">
+              <a href="tour1.html" class="dropdown-item">
+                <i class="fas fa-1"></i>
+                <div>
+                  <div class="title">First Tournament!</div>
+                  <div class="description">Check out the 1st tournament.</div>
+                </div>
+              </a>
+              <a href="tour2.html" class="dropdown-item"> 
+                <i class="fas fa-2"></i>
+                <div>
+                  <div class="title">Second Tournament</div>
+                  <div class="description">Check out the 2nd tournament.</div>
+                </div>
+              </a>
+          
+            </div>
+          </li>
+          <li class="nav-element">
+            <a tabindex="0" role="none" class="nav-element-link nav-element-focusable" href="ranklist.html">
+              <i class="fas fa-chart-line"></i> <!-- Ranklist Icon -->
+              <span tabindex="-1" role="none" class="nav-element-label">Ranklist</span>
+            </a>
+          </li>
+          <li class="nav-element">
+            <a tabindex="0" role="none" class="nav-element-link nav-element-focusable" href="contact.html">
+              <i class="fas fa-envelope"></i> <!-- Contact Icon -->
+              <span tabindex="-1" role="none" class="nav-element-label">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      &nbsp;&nbsp;&nbsp;
+      <!-- Add Join Discord Button -->
+      <a href="https://discord.gg/bigtipperbs" class="btn-discord" target="_blank">
+        <i class="fab fa-discord"></i> Join Discord
+      </a>
+      &nbsp;&nbsp;&nbsp;
+      <!-- Add Theme Toggler Button -->
+      <button id="theme-toggler" class="btn-theme">🌙</button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="results-container">
+      <h2 class="results-title">Tournaments</h2>
+      <div class="performance-cards">
+        <!-- Example Card 1 -->
+        <div class="performance-card">
+          
+          <img src="https://i.imgur.com/ugKGUQA.png" alt="Tournament Image">
+          <div class="card-content">
+            <h3 class="card-title"><strong>Big Tipper #1</strong></h3>
+            <br>
+            <div class="card-info">
+              <span><strong>Teams:</strong>16 </span>
+              <span><strong>Prize Pool:</strong> 1000$</span>
+              <span><strong>Date:</strong> No Date Yet</span>
+            </div>
+            <a href="activetour.html" class="view-details">View Details</a>
+          </div>
+        </div>
+
+      
+       
+    </div>
+  </main>
+
+ 
+  <!-- Footer -->
+  <footer id="site-footer">
+    <div class='external-section pt-48 pb-0'>
+      <div class='lg-container flex flex-col lg:flex-row'>
+        <div class='lhs mr-auto mb-20 lg:mb-0'>
+          <img alt="" class="icon" src="https://i.imgur.com/c0io11d.jpg" height="100" width="220"/>
+          <br>
+          <h2 class='text-h3 mb-4'>Join Big Tipper's Community</h2>
+          <p class='text-p-large'>
+            Join Big Tipper's Community for a thrilling experience and for a chance to win many giveaways.
+          </p>
+        </div>
+        <div class='rhs flex lg:ml-24 flex-col sm:flex-row items-stretch sm:items-center'>
+          <a class="btn-l btn-primary mb-16 sm:mb-0 sm:mr-32" href="https://discord.gg/bigtipperbs" target="_blank">
+            <i class="fab fa-discord"></i> Join Discord
+          </a>
+          <a class="btn-l btn-enhanced" href="tournaments.html">Explore Tournaments</a>
+        </div>
+      </div>
+      <div class='bottom'></div>
+    </div>
+    <div class='lg-container'>
+      <hr>
+      <div class='site-links mt-24 md:mt-56'>
+        <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 gap-x-40'>
+          <div class='col'>
+            <h3>Quick Links</h3>
+            <hr class='c-divider --small'>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/tournaments">Tournaments</a></li>
+              <li><a href="/tournament-history">Tournament History</a></li>
+              <li><a href="/ranklist">Ranklist</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class='col'>
+            <h3>Socials</h3>
+            <hr class='c-divider --small'>
+            <ul>
+              <li><a href="https://twitter.com/bigtippertourneys">Twitter</a></li>
+              <li><a href="https://facebook.com/bigtippertourneys">Facebook</a></li>
+              <li><a href="https://discord.gg/bigtipper">Discord</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class='legals mt-24 md:mt-32 mb-32 md:mb-40 flex md:items-center flex-col md:flex-row'>
+        <div class='copyright md:ml-auto'>
+          © 2025 Big Tipper Tourneys. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // Theme Toggler
+    const themeToggler = document.getElementById('theme-toggler');
+    const body = document.body;
+  
+    themeToggler.addEventListener('click', () => {
+      body.classList.toggle('theme-dark');
+      body.classList.toggle('theme-light');
+      themeToggler.textContent = body.classList.contains('theme-dark') ? '☀️' : '🌙';
+    });
+  
+    // Set initial theme based on body class
+    if (body.classList.contains('theme-dark')) {
+      themeToggler.textContent = '☀️';
+    } else {
+      themeToggler.textContent = '🌙';
+    }
+  </script>
+</body>
+</html>
