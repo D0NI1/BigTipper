@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang='en-US'>
 <head>
@@ -10,6 +11,36 @@
   <link as='font' crossorigin='anonymous' href='https://assets.exercism.org/assets/source-code-pro-v22-latin_latin-ext-regular-ac7e13e27e17f830518f9899f1928cb5bfde3c3b.woff2' rel='preload' type='font/woff2'>
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://assets.exercism.org/assets/landing-8cfd9542effc63d95eab20ecca79a1cdcf7432f1.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false" defer="defer"></script>
+  
+  <meta content='width=device-width, initial-scale=1' name='viewport'>
+  <link href='https://big-tipper.com' rel='canonical'>
+  <meta name="csrf-param" content="authenticity_token" />
+  <meta name="csrf-token" content="0GqdWM7TNiuplJ-pFDMpzojwWCc6CUoA2-YriSiXDeP00UGTaPvhUiDvp_CrwRMH_aT_VE8nMN_vehQ7zpD2_Q" />
+  <meta name="action-cable-url" content="wss://big-tipper.com/cable" />
+  <meta content='no-cache' name='turbo-cache-control'>
+  <title>Big Tipper Tourneys</title>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='description'>
+  <meta content='width=device-width, initial-scale=1, viewport-fit=cover' name='viewport'>
+  <meta content='summary_large_image' name='twitter:card'>
+  <meta content='@bigtippertourneys' name='twitter:site'>
+  <meta content='@bigtippertourneys' name='twitter:creator'>
+  <meta content='https://bigtippertourneys.com' name='twitter:url'>
+  <meta content='Big Tipper Tourneys' name='twitter:title'>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='twitter:description'>
+  <meta content='https://assets.exercism.org/meta/og.png' name='twitter:image'>
+  <meta content='Big Tipper Tourneys' property='og:title'>
+  <meta content='website' property='og:type'>
+  <meta content='https://bigtippertourneys.com' property='og:url'>
+  <meta content='https://i.imgur.com/ugKGUQA.png' property='og:image'>
+  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' property='og:description'>
+  <meta content='Big Tipper Tourneys' property='og:site_name'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='apple-touch-icon' sizes='180x180'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='32x32' type='image/png'>
+  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='16x16' type='image/png'>
+  <link href='/site.webmanifest' rel='manifest'>
+  <link href='https://bigtippertourneys.com/blog.rss' rel='alternate' title='Big Tipper Tourneys Blog' type='application/rss+xml'>
+</head>  
   <style>
     @font-face {
       font-display: fallback;
@@ -42,55 +73,345 @@
       src: url(https://assets.exercism.org/assets/poppins-v20-latin-600-179f97ec0275f09603a8db94d4380eb584d81cd5.woff2) format('woff2');
     }
   </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
+    /* Light Mode (Default) */
     body {
-      --body-font: Poppins, PoppinsInitial, sans-serif;
+      --body-font: 'Roboto', sans-serif;
+      --background-color: #f9fafb;
+      --text-color: #1e293b;
+      --card-bg: white;
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      --button-bg: #7289DA;
+      --button-hover-bg: #5865F2;
+      --button-text: white;
+      --sidebar-bg: #f0f0f0; /* Slightly darker for side sections */
       font-family: var(--body-font);
       -webkit-font-smoothing: antialiased;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* Style for Join Discord Button */
-    .btn-discord {
-      background-color: #7289DA; /* Discord's brand color */
-      color: white;
+    /* Dark Mode */
+    body.theme-dark {
+      --background-color: #1a1a1a;
+      --text-color: orange;
+      --card-bg: #2d2d2d;
+      --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      --button-bg: #5865F2;
+      --button-hover-bg: #7289DA;
+      --sidebar-bg: #333; /* Slightly darker for side sections */
+    }
+
+    /* Header */
+    header#site-header {
+      background-color: var(--card-bg);
+      box-shadow: var(--card-shadow);
+      padding: 20px 0;
+    }
+
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header .exercism-link img {
+      height: 60px;
+    }
+
+    header nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav ul li a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    header nav ul li a i {
+      font-size: 18px;
+    }
+
+    header .btn-discord {
+      background-color: var(--button-bg);
+      color: var(--button-text);
       padding: 10px 20px;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
-      margin-left: 20px;
     }
 
-    /* Style for Theme Toggler Button */
-    .btn-theme {
+    header .btn-discord:hover {
+      background-color: var(--button-hover-bg);
+    }
+
+    header .btn-theme {
       background-color: transparent;
       border: none;
       font-size: 24px;
       cursor: pointer;
-      margin-left: 10px;
+      color: var(--text-color);
     }
 
- 
-    /* Dark Theme Styles */
-    body.theme-dark {
-      background-color: black;
-      color: orange;
+    /* Main Content */
+    .main-container {
+      display: flex;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      gap: 20px;
     }
 
-    body.theme-dark header {
-      background-color: #333;
-      color: orange;
+    /* Left Side Menu */
+    .left-menu {
+      width: 250px;
+      background-color: var(--sidebar-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
     }
 
-    body.theme-dark a {
-      color: orange;
+    .left-menu .tour-info {
+      text-align: center;
     }
 
-    body.theme-dark .btn-discord {
-      background-color: #5865F2; /* Slightly darker Discord color for dark theme */
+    .left-menu .tour-info img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .left-menu .tour-info h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+
+    .left-menu .tour-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .left-menu .menu-items {
+      margin-top: 20px;
+    }
+
+    .left-menu .menu-items a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .left-menu .menu-items a:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .left-menu .menu-items a i {
+      font-size: 18px;
+    }
+
+    .left-menu .menu-items a.active {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+    }
+
+    /* Content Area */
+    .content-area {
+      flex: 1;
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
+      border-left: 2px solid var(--sidebar-bg);
+    }
+
+    .content-area h2 {
+      margin-top: 0;
+    }
+
+    /* Right Side Graphic */
+    .right-graphic {
+      width: 250px;
+      background-color: var(--sidebar-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
+      text-align: center;
+    }
+
+    .right-graphic h3 {
+      margin: 0 0 10px;
+      font-size: 1.0rem;
+    }
+
+    .right-graphic p {
+      margin: 0;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--button-bg);
+    }
+
+
+    /* Tournament Container */
+    .tournament-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .tournament-box {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .tournament-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .tournament-box img {
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .tournament-box-content h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2rem;
+    }
+
+    .tournament-box-content p {
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+
+    .popup-content {
+      text-align: center;
+    }
+
+    .popup-content button {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .popup-content button:hover {
+      background-color: var(--button-hover-bg);
+    }
+
+    /* Registration Form */
+    .registration-form {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: var(--card-shadow);
+      padding: 20px;
+      z-index: 1000;
+    }
+
+    .registration-form h2 {
+      margin-top: 0;
+    }
+
+    .registration-form input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .registration-form button {
+      background-color: var(--button-bg);
+      color: var(--button-text);
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .registration-form button:hover {
+      background-color: var(--button-hover-bg);
+    }
+
+    .loading {
+      display: none;
+      text-align: center;
+    }
+
+    .message {
+      display: none;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .message.success {
+      color: green;
+    }
+
+    .message.error {
+      color: red;
     }
 
     
-
     /* Dropdown Menu */
     .dropdown-menu {
       display: none; /* Hidden by default */
@@ -139,216 +460,126 @@
       display: block;
     }
 
-    /* Icons in Navigation */
-    .nav-element-link i {
-      margin-right: 5px; /* Reduced margin to bring icons closer to text */
-      font-size: 18px; /* Slightly larger icons */
-      vertical-align: middle; /* Align icons with text */
-    }
-
-    .nav-element-link {
-      display: flex;
-      align-items: center; /* Align icon and text vertically */
-      padding: 10px 15px; /* Add padding for better spacing */
-    }
-
-      /* Tournament Cards */
-      .results-container {
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 20px;
-        
-      }
-  
-      .results-title {
-        text-align: center;
-        font-size: 2rem;
-        margin-bottom: 30px;
-       
-      }
-  
-      .performance-cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-       
-      }
-  
-      .performance-card {
-        background: #353839;
-        border-radius: 15px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px; /* Wider box */
-        overflow: hidden;
-      }
-  
-      .performance-card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-      }
-  
-      .performance-card .card-content {
-        padding: 20px;
-        text-align: center;
-      }
-  
-      .performance-card .card-title {
-        font-size: 1.5rem;
-        color: orange;
-        margin-bottom: 10px;
-      }
-  
-      .performance-card .card-info {
-        font-size: 1rem;
-        color: orange;
-        margin-bottom: 15px;
-      }
-  
-      .performance-card .card-info span {
-        display: block;
-        margin-bottom: 5px;
-      }
-  
-      .performance-card .team-roster {
-        text-align: left;
-        margin-top: 15px;
-      }
-  
-      .performance-card .team-roster strong {
-        display: block;
-        margin-bottom: 5px;
-      }
-  
-      .performance-card .view-details {
-        display: block;
-        margin-top: 10px;
-        padding: 10px 15px;
-        background: orange;
-        color: black;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background 0.3s;
-        text-align: center;
-      }
-  
-      .performance-card .view-details:hover {
-        background: orangered;
-      }
-  
-    </style>
-    <style>
-
-body.theme-dark {
-  background-color: black;
-  color: orange;
+    .btn-discord {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
 
-body.theme-dark header {
-  background-color: black;
-  color: orange;
+.btn-discord:hover {
+  background-color: var(--button-hover-bg);
 }
 
-body.theme-dark a {
-  color: orange;
+.btn-discord i {
+  margin-right: 8px;
 }
 
-body.theme-dark .btn-discord {
-  background-color: #5865F2; /* Slightly darker Discord color for dark theme */
-  color: white;
+    /* Responsive Design */
+@media (max-width: 1200px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .left-menu,
+  .right-graphic {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .content-area {
+    width: 100%;
+    max-width: 800px;
+  }
 }
 
-body.theme-dark .performance-card {
-  background: #000; /* Darker background for cards */
-  color: orange;
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .main-container {
+    padding: 20px 10px;
+  }
+
+  .left-menu,
+  .right-graphic {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .content-area {
+    padding: 15px;
+  }
+
+  .tournament-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tournament-box {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .popup,
+  .registration-form {
+    width: 90%;
+    max-width: 400px;
+  }
 }
 
-body.theme-dark .performance-card .card-title,
-body.theme-dark .performance-card .card-info {
-  color: orange;
-}
+@media (max-width: 480px) {
+  header .exercism-link img {
+    height: 40px;
+  }
 
-body.theme-dark .view-details {
-  background: rgb(216, 141, 1);
-  color: black;
-}
+  header .btn-discord {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 
-body.theme-dark .view-details:hover {
-  background: orangered;
-  color: black;
-}
+  header .btn-theme {
+    font-size: 20px;
+  }
 
-body.theme-light {
-  background-color: white;
-  color: black;
-}
+  .left-menu .menu-items a,
+  .right-graphic h3,
+  .right-graphic p {
+    font-size: 14px;
+  }
 
-body.theme-light header {
-  background-color: white;
-  color: black;
-}
+  .content-area h2 {
+    font-size: 1.5rem;
+  }
 
-body.theme-light a {
-  color: black;
-}
+  .tournament-box-content h3 {
+    font-size: 1rem;
+  }
 
-body.theme-light .btn-discord {
-  background-color: #7289DA; /* Discord's brand color */
-  color: white;
-}
+  .tournament-box-content p {
+    font-size: 0.8rem;
+  }
 
-body.theme-light .performance-card {
-  background: #f9fafb; /* Light background for cards */
-  color: black;
+  .popup-content button,
+  .registration-form button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
 }
-
-body.theme-light .performance-card .card-title,
-body.theme-light .performance-card .card-info {
-  color: black;
-}
-
-body.theme-light .view-details {
-  background: black;
-  color: white;
-}
-
-body.theme-light .view-details:hover {
-  background: #333; /* Darker background on hover */
-  color: white;
-}
-    </style>
-  <script src="https://assets.exercism.org/assets/landing-8cfd9542effc63d95eab20ecca79a1cdcf7432f1.js" crossorigin="anonymous" type="module" data-turbo-track="reload" data-turbo-eval="false" defer="defer"></script>
-  <script async data-api='/usage/api/event' data-domain='exercism.org' src='/usage/js/script.js'></script>
-  <meta content='width=device-width, initial-scale=1' name='viewport'>
-  <meta name="csrf-param" content="authenticity_token" />
-  <meta name="csrf-token" content="0GqdWM7TNiuplJ-pFDMpzojwWCc6CUoA2-YriSiXDeP00UGTaPvhUiDvp_CrwRMH_aT_VE8nMN_vehQ7zpD2_Q" />
-  <meta content='no-cache' name='turbo-cache-control'>
-  <title>Big Tipper Tourneys</title>
-  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='description'>
-  <meta content='width=device-width, initial-scale=1, viewport-fit=cover' name='viewport'>
-  <meta content='summary_large_image' name='twitter:card'>
-  <meta content='@bigtippertourneys' name='twitter:site'>
-  <meta content='@bigtippertourneys' name='twitter:creator'>
-  <meta content='https://bigtippertourneys.com' name='twitter:url'>
-  <meta content='Big Tipper Tourneys' name='twitter:title'>
-  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' name='twitter:description'>
-  <meta content='https://i.imgur.com/ugKGUQA.png' name='twitter:image'>
-  <meta content='Big Tipper Tourneys' property='og:title'>
-  <meta content='website' property='og:type'>
-  <meta content='https://bigtippertourneys.com' property='og:url'>
-  <meta content='https://i.imgur.com/ugKGUQA.png' property='og:image'>
-  <meta content='Big Tipper Tourneys - Your ultimate destination for competitive gaming tournaments, tutorials, and community contributions.' property='og:description'>
-  <meta content='Big Tipper Tourneys' property='og:site_name'>
-  <link href='https://i.imgur.com/ugKGUQA.png' rel='apple-touch-icon' sizes='180x180'>
-  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='32x32' type='image/png'>
-  <link href='https://i.imgur.com/ugKGUQA.png' rel='icon' sizes='16x16' type='image/png'>
-  <link href='/site.webmanifest' rel='manifest'>
-  <link href='https://bigtippertourneys.com/blog.rss' rel='alternate' title='Big Tipper Tourneys Blog' type='application/rss+xml'>
+    
+  </style>
 </head>
-
-<body class='namespace- controller-pages action-index theme-light user-signed_out'>
+<body><body class='namespace- controller-pages action-index theme-light user-signed_out'>
   <header id="site-header">
     <div class="lg-container container">
       <a class="exercism-link xl:block" data-turbo-frame="tf-main" href="index.html">
@@ -419,32 +650,303 @@ body.theme-light .view-details:hover {
   </header>
 
   <!-- Main Content -->
-  <main>
-    <div class="results-container">
-      <h2 class="results-title">Tournaments</h2>
-      <div class="performance-cards">
-        <!-- Example Card 1 -->
-        <div class="performance-card">
-          
-          <img src="https://i.imgur.com/ugKGUQA.png" alt="Tournament Image">
-          <div class="card-content">
-            <h3 class="card-title"><strong>Big Tipper #1</strong></h3>
+  <div class="main-container">
+    <!-- Left Side Menu -->
+    <div class="left-menu">
+      <div class="tour-info">
+        <img src="https://i.imgur.com/ugKGUQA.png" alt="Tournament Image">
+        <h3>Big Tipper Tournament</h3>
+        <p>Organizer:<b> Big Tipper</b></p>
+        
+      </div>
+      <div class="menu-items">
+        <a href="#" class="active" onclick="showContent('overview')"><i class="fas fa-info-circle"></i> Overview</a>
+        <a href="#" onclick="showContent('rules')"><i class="fas fa-book"></i> Rules</a>
+        <a href="#" onclick="showContent('teams')"><i class="fas fa-users"></i> Teams (16)</a>
+        <a href="#" onclick="showContent('bracket')"><i class="fas fa-trophy"></i> Bracket</a>
+        <a href="#" onclick="showContent('register')"><i class="fas fa-user-plus"></i> Register</a>
+      </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area" id="content-area">
+      <!-- Default Content (Overview) -->
+      <div id="overview">
+        <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+        <h2><strong><i class="fas fa-info-circle"></i> Overview</strong></h2>
+        <br>
+        <p>Welcome to the Big Tipper Tournament!</p>
+        <br>
+        <h3><strong><i class="fas fa-key"></i> Key Details</strong></h3>
+        <br>
+        <ul>
+          <li><i class="fas fa-map-marked-alt"></i> <strong>Maps:</strong> Map1, Map2, Map3</li>
+          <br>
+          <li><i class="fas fa-users"></i> <strong>Max Teams:</strong> 16</li>
+          <br>
+          <li><i class="fas fa-trophy"></i> <strong>Prize Pool:</strong> $1000</li>
+        </ul>
+        <br>
+        <br>
+      
+      
+        <h2><strong><i class="fas fa-tasks"></i> Tournament Format</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-flag"></i> <strong>Top 256 - Top 32:</strong> Bo1 of BO3</li>
+          <br>
+          <li><i class="fas fa-flag-checkered"></i> <strong>Top 16 - Semi Final:</strong> BO3 of BO3</li>
+          <br>
+          <li><i class="fas fa-medal"></i> <strong>Final:</strong> BO5 of BO3 in Power League</li>
+          <br>
+          <li><i class="fas fa-bolt"></i> Hypercharges are authorized!</li>
+          <br>
+          <li><i class="fas fa-ban"></i> New Brawler ban!</li>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-random"></i> Modes and Maps</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-dice"></i> Modes and maps are randomly selected for each set from the list:</li>
+          <br>
+          <ul>
+            <li><strong>Set 1:</strong> Gem Grab or Bounty</li>
             <br>
-            <div class="card-info">
-              <span><strong>Teams:</strong>16 </span>
-              <span><strong>Prize Pool:</strong> 1000$</span>
-              <span><strong>Date:</strong> No Date Yet</span>
+            <li><strong>Set 2:</strong> Brawl Ball or Knockout</li>
+            <br>
+            <li><strong>Set 3:</strong> Heist or Hot Zone</li>
+            <br>
+            <li><strong>Set 4:</strong> Bounty, Heist, or Brawl Ball</li>
+            <br>
+            <li><strong>Set 5:</strong> Gem Grab, Hot Zone, or Knockout</li>
+          </ul>
+          <br>
+          <li><i class="fas fa-map-pin"></i> Maps are chosen at random from the 3 competitive maps.</li>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-gift"></i> Rewards</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-money-bill-wave"></i> <strong>100% of the Cash Prize</strong> for the winning team.</li>
+          <br>
+          <li><i class="fas fa-percentage"></i> If the cash prize exceeds $100 with donations, distribution will be:</li>
+          <ul>
+            <li><i class="fas fa-star"></i> <strong>70%</strong> for the first place.</li>
+            <br>
+            <li><i class="fas fa-star-half-alt"></i> <strong>30%</strong> for the second place.</li>
+          </ul>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-exclamation-circle"></i> Important Notes</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-server"></i> Join the Tournament server!</li>
+          <br>
+          <li><i class="fas fa-book"></i> Read the Rulesbook.</li>
+          <br>
+          <li><i class="fas fa-language"></i> Available in: Français, English</li>
+        </ul>
+      </div>
+  <!-- Rules Content -->
+  <div id="rules" style="display: none;">
+    <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+    <h2><strong><i class="fas fa-gavel"></i> Rules</strong></h2>
+    <br>
+    <br>
+    <p>Here are the rules for the Big Tipper Tournament:</p>
+    <br>
+    <ol>
+      <li><i class="fas fa-users"></i> Teams must consist of 3 players.</li>
+      <br>
+      <li><i class="fas fa-map"></i> All matches will be played on the specified maps.</li>
+      <br>
+      <li><i class="fas fa-ban"></i> Cheating or exploiting bugs will result in disqualification.</li>
+      <br>
+      <li><i class="fas fa-handshake"></i> Respect all players and organizers.</li>
+      <br>
+      <li><i class="fas fa-clock"></i> 5-minute delay tolerance for match start. Incomplete teams lose the match.</li>
+      <br>
+      <li><i class="fas fa-wifi"></i> Connection issues or crashes are your responsibility (except for game bugs).</li>
+      <br>
+      <li><i class="fas fa-door-closed"></i> No room hopping! Admins may sanction with a lost match.</li>
+    </ol>
+    <br>
+    <br>
+
+    <h2><strong><i class="fas fa-pencil-alt"></i> Registration</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Register with a team for bracket placement or waitlist.</li>
+      <br>
+      <li><i class="fas fa-user-check"></i> All team members must be present at the start time.</li>
+      <br>
+      <li><i class="fas fa-envelope"></i> Team invites must be accepted to count.</li>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-clipboard-check"></i> Check In</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-calendar-alt"></i> Check in before the tournament start time.</li>
+      <br>
+      <li><i class="fas fa-exclamation-circle"></i> Failure to check in may disqualify your team.</li>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-ban"></i> Bans</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> Power League: 3 Brawler bans per team.</li>
+      <br>
+      <li><i class="fas fa-blind"></i> Normal format: Optional double-blind bans (2 Brawlers).</li>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-gamepad"></i> Matches</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-envelope-open"></i> Match invites should be created by a player in the lobby. Ensure:</li>
+      <br>
+      <ul>
+        <li><i class="fas fa-tag"></i> Player sends invite link to teammates and opponents.</li>
+        <br>
+        <li><i class="fas fa-sign-out-alt"></i> Exit unrelated games/lobbies.</li>
+        <br>
+        <li><i class="fas fa-bell"></i> Disable Do Not Disturb and unmute notifications.</li>
+        <br>
+      </ul>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-trophy"></i> Results</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-check-double"></i> Results are recorded automatically by our team.</li>
+    </ul>
+    <br>
+  
+    <h2><strong><i class="fas fa-question-circle"></i> Any Issues?</strong></h2>
+    <ul>
+      <li><i class="fas fa-headset"></i> Contact admins via Discord by creating a ticket.</li>
+    </ul>
+  </div>
+<!-- Teams Content -->
+<div id="teams" style="display: none;">
+  <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+  <h2><strong><i class="fas fa-users"></i> Registered Teams</strong></h2>
+  <br>
+  <p>Here are the teams that have registered so far:</p>
+  <br>
+  
+  <!-- Option 1: Display Teams (if you want to show a few teams) -->
+  <ul>
+    <li><i class="fas fa-user-friends"></i> Team 1</li>
+    <li><i class="fas fa-user-friends"></i> Team 2</li>
+    <li><i class="fas fa-user-friends"></i> Team 3</li>
+    <li><i class="fas fa-user-friends"></i> Team 4</li>
+    <li><i class="fas fa-ellipsis-h"></i> ... (16 teams total)</li>
+  </ul>
+  <br>
+
+  <!-- Option 2: Discord Button (to redirect to a specific channel) -->
+  <p>To view all registered teams, join our Discord server and check the <strong>#registered-teams</strong> channel:</p>
+  <br>
+  <a href="https://discord.com/channels/1336018712611782790/1350242733159088170" target="_blank" class="btn-discord">
+    <i class="fab fa-discord"></i> View Teams on Discord
+  </a>
+</div>
+
+      <!-- Bracket Content -->
+      <div id="bracket" style="display: none;">
+        <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+      
+
+        <h2><strong>Bracket</strong></h2>
+<br>
+<h3><strong>Note:</strong>You Can Click On Challonge Watermark to Check Bracket and Standings in a Better View</h3>
+<br>
+        <p>Here is the tournament bracket:</p>
+<br>
+        
+        <div style="text-align: center;">
+          <iframe src="https://challonge.com/BigTipper/module?multiplier=0.9&show_final_results=1&show_standings=1" width="100%" height="500" frameborder="0" scrolling="auto" allowtransparency="true" ></iframe>
+        </div>
+      </div>
+
+      <!-- Register Content -->
+      <div id="register" style="display: none;">
+        <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+      
+        <h2><strong>Register for the Tournament</strong></h2>
+        <div class="tournament-container">
+          <!-- Tournament Box -->
+          <div class="tournament-box" onclick="openPopup()">
+            <div class="tournament-box-content">
+              <h3>Big Tipper Tournament</h3>
+              <p>Join the tournament!</p>
+              <br>
+              <a href="#popup" class="btn">Register Now</a>
             </div>
-            <a href="ActiveTour.html" class="view-details">View Details</a>
           </div>
         </div>
 
-      
-       
-    </div>
-  </main>
+        <!-- Popup for Tournament Details -->
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <h1><strong> Big Tipper Tournament</strong></h1>
+            <br>
+           <h3>Organizer:<strong>Big Tipper</strong></h3>
+           <br>
+           <h3>Prize Pool:<strong>1000$</strong></h3>
+            <br>
+            
+            <button onclick="openRegistrationForm()">Register</button>
+          </div>
+        </div>
+        <div id="popup-overlay" class="popup-overlay" onclick="closePopup()"></div>
 
- 
+        <!-- Registration Form -->
+        <div id="registrationForm" class="registration-form">
+          <h2>Register Your Team</h2>
+          <form id="teamRegistrationForm">
+            <input type="text" id="teamName" placeholder="Team Name" required>
+            <input type="text" id="player1" placeholder="Player 1" required>
+            <input type="text" id="player2" placeholder="Player 2" required>
+            <input type="text" id="player3" placeholder="Player 3" required>
+            <button type="submit">Confirm</button>
+          </form>
+          <div id="loading" class="loading">
+          <h2>⌛</h2>  
+          </div>
+          <div id="message" class="message"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Side Graphic -->
+    <div class="right-graphic">
+      <h3>Prize Pool</h3>
+      <p>$1000</p>
+    </div>
+  </div>
+
 
   <!-- Footer -->
   <footer id="site-footer">
@@ -503,24 +1005,103 @@ body.theme-light .view-details:hover {
   </footer>
 
 
-  <!-- Scripts -->
   <script>
-    // Theme Toggler
-    const themeToggler = document.getElementById('theme-toggler');
-    const body = document.body;
-  
-    themeToggler.addEventListener('click', () => {
-      body.classList.toggle('theme-dark');
-      body.classList.toggle('theme-light');
-      themeToggler.textContent = body.classList.contains('theme-dark') ? '☀️' : '🌙';
+    // Theme toggler
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggler = document.getElementById('theme-toggler');
+      const body = document.body;
+
+      themeToggler.addEventListener('click', function() {
+        body.classList.toggle('theme-dark');
+        themeToggler.textContent = body.classList.contains('theme-dark') ? '☀️' : '🌙';
+      });
     });
-  
-    // Set initial theme based on body class
-    if (body.classList.contains('theme-dark')) {
-      themeToggler.textContent = '☀️';
-    } else {
-      themeToggler.textContent = '🌙';
+
+    // Show content based on menu selection
+    function showContent(section) {
+      // Hide all content sections
+      document.querySelectorAll('#content-area > div').forEach(div => {
+        div.style.display = 'none';
+      });
+
+      // Show the selected section
+      document.getElementById(section).style.display = 'block';
+
+      // Update active menu item
+      document.querySelectorAll('.menu-items a').forEach(link => {
+        link.classList.remove('active');
+      });
+      document.querySelector(`.menu-items a[onclick="showContent('${section}')"]`).classList.add('active');
     }
+
+    // Popup functions
+    function openPopup() {
+      document.getElementById('popup').style.display = 'block';
+      document.getElementById('popup-overlay').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('popup-overlay').style.display = 'none';
+      document.getElementById('registrationForm').style.display = 'none';
+    }
+
+    function openRegistrationForm() {
+      document.getElementById('popup').style.display = 'none';
+      document.getElementById('registrationForm').style.display = 'block';
+    }
+
+    // Handle form submission
+    document.getElementById('teamRegistrationForm').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      // Show loading spinner
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('message').style.display = 'none';
+
+      // Get form data
+      const teamName = document.getElementById('teamName').value;
+      const player1 = document.getElementById('player1').value;
+      const player2 = document.getElementById('player2').value;
+      const player3 = document.getElementById('player3').value;
+
+      try {
+        // Send data to the backend
+        const response = await fetch('https://bigtipper.onrender.com/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ teamName, player1, player2, player3 }),
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          // Show success message
+          document.getElementById('message').textContent = 'Registration successful!';
+          document.getElementById('message').classList.add('success');
+        } else {
+          // Show error message
+          document.getElementById('message').textContent = data.error || 'Registration failed. Please try again.';
+          document.getElementById('message').classList.add('error');
+        }
+      } catch (error) {
+        // Show error message
+        document.getElementById('message').textContent = 'An error occurred. Please try again.';
+        document.getElementById('message').classList.add('error');
+      } finally {
+        // Hide loading spinner and show message
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('message').style.display = 'block';
+
+        // Reset the form after 2 seconds
+        setTimeout(() => {
+          document.getElementById('teamRegistrationForm').reset();
+          document.getElementById('message').style.display = 'none';
+        }, 2000);
+      }
+    });
   </script>
 </body>
 </html>
