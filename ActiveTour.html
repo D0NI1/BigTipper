@@ -460,6 +460,122 @@
       display: block;
     }
 
+    .btn-discord {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn-discord:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.btn-discord i {
+  margin-right: 8px;
+}
+
+    /* Responsive Design */
+@media (max-width: 1200px) {
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .left-menu,
+  .right-graphic {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .content-area {
+    width: 100%;
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  header nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .main-container {
+    padding: 20px 10px;
+  }
+
+  .left-menu,
+  .right-graphic {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .content-area {
+    padding: 15px;
+  }
+
+  .tournament-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tournament-box {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .popup,
+  .registration-form {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  header .exercism-link img {
+    height: 40px;
+  }
+
+  header .btn-discord {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  header .btn-theme {
+    font-size: 20px;
+  }
+
+  .left-menu .menu-items a,
+  .right-graphic h3,
+  .right-graphic p {
+    font-size: 14px;
+  }
+
+  .content-area h2 {
+    font-size: 1.5rem;
+  }
+
+  .tournament-box-content h3 {
+    font-size: 1rem;
+  }
+
+  .tournament-box-content p {
+    font-size: 0.8rem;
+  }
+
+  .popup-content button,
+  .registration-form button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
     
   </style>
 </head>
@@ -540,8 +656,8 @@
       <div class="tour-info">
         <img src="https://i.imgur.com/ugKGUQA.png" alt="Tournament Image">
         <h3>Big Tipper Tournament</h3>
-        <p>Organizer: Big Tipper</p>
-        <p>Date: March 25, 2025</p>
+        <p>Organizer:<b> Big Tipper</b></p>
+        
       </div>
       <div class="menu-items">
         <a href="#" class="active" onclick="showContent('overview')"><i class="fas fa-info-circle"></i> Overview</a>
@@ -557,47 +673,205 @@
       <!-- Default Content (Overview) -->
       <div id="overview">
         <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
-        <h2><strong>Overview</strong></h2>
+        <h2><strong><i class="fas fa-info-circle"></i> Overview</strong></h2>
         <br>
-        <p>Welcome to the Big Tipper Tournament! This is the most competitive gaming tournament with a maximum of 16 teams. Check out the rules, teams, and bracket to stay updated.</p>
-        <h3>Key Details</h3>
+        <p>Welcome to the Big Tipper Tournament!</p>
+        <br>
+        <h3><strong><i class="fas fa-key"></i> Key Details</strong></h3>
+        <br>
         <ul>
-          <li><strong>Maps:</strong> Map1, Map2, Map3</li>
-          <li><strong>Max Teams:</strong> 16</li>
-          <li><strong>Prize Pool:</strong> $1000</li>
+          <li><i class="fas fa-map-marked-alt"></i> <strong>Maps:</strong> Map1, Map2, Map3</li>
+          <br>
+          <li><i class="fas fa-users"></i> <strong>Max Teams:</strong> 16</li>
+          <br>
+          <li><i class="fas fa-trophy"></i> <strong>Prize Pool:</strong> $1000</li>
+        </ul>
+        <br>
+        <br>
+      
+      
+        <h2><strong><i class="fas fa-tasks"></i> Tournament Format</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-flag"></i> <strong>Top 256 - Top 32:</strong> Bo1 of BO3</li>
+          <br>
+          <li><i class="fas fa-flag-checkered"></i> <strong>Top 16 - Semi Final:</strong> BO3 of BO3</li>
+          <br>
+          <li><i class="fas fa-medal"></i> <strong>Final:</strong> BO5 of BO3 in Power League</li>
+          <br>
+          <li><i class="fas fa-bolt"></i> Hypercharges are authorized!</li>
+          <br>
+          <li><i class="fas fa-ban"></i> New Brawler ban!</li>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-random"></i> Modes and Maps</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-dice"></i> Modes and maps are randomly selected for each set from the list:</li>
+          <br>
+          <ul>
+            <li><strong>Set 1:</strong> Gem Grab or Bounty</li>
+            <br>
+            <li><strong>Set 2:</strong> Brawl Ball or Knockout</li>
+            <br>
+            <li><strong>Set 3:</strong> Heist or Hot Zone</li>
+            <br>
+            <li><strong>Set 4:</strong> Bounty, Heist, or Brawl Ball</li>
+            <br>
+            <li><strong>Set 5:</strong> Gem Grab, Hot Zone, or Knockout</li>
+          </ul>
+          <br>
+          <li><i class="fas fa-map-pin"></i> Maps are chosen at random from the 3 competitive maps.</li>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-gift"></i> Rewards</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-money-bill-wave"></i> <strong>100% of the Cash Prize</strong> for the winning team.</li>
+          <br>
+          <li><i class="fas fa-percentage"></i> If the cash prize exceeds $100 with donations, distribution will be:</li>
+          <ul>
+            <li><i class="fas fa-star"></i> <strong>70%</strong> for the first place.</li>
+            <br>
+            <li><i class="fas fa-star-half-alt"></i> <strong>30%</strong> for the second place.</li>
+          </ul>
+        </ul>
+        <br>
+        <br>
+      
+
+        <h2><strong><i class="fas fa-exclamation-circle"></i> Important Notes</strong></h2>
+        <br>
+        <ul>
+          <li><i class="fas fa-server"></i> Join the Tournament server!</li>
+          <br>
+          <li><i class="fas fa-book"></i> Read the Rulesbook.</li>
+          <br>
+          <li><i class="fas fa-language"></i> Available in: Français, English</li>
         </ul>
       </div>
+  <!-- Rules Content -->
+  <div id="rules" style="display: none;">
+    <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+    <h2><strong><i class="fas fa-gavel"></i> Rules</strong></h2>
+    <br>
+    <br>
+    <p>Here are the rules for the Big Tipper Tournament:</p>
+    <br>
+    <ol>
+      <li><i class="fas fa-users"></i> Teams must consist of 3 players.</li>
+      <br>
+      <li><i class="fas fa-map"></i> All matches will be played on the specified maps.</li>
+      <br>
+      <li><i class="fas fa-ban"></i> Cheating or exploiting bugs will result in disqualification.</li>
+      <br>
+      <li><i class="fas fa-handshake"></i> Respect all players and organizers.</li>
+      <br>
+      <li><i class="fas fa-clock"></i> 5-minute delay tolerance for match start. Incomplete teams lose the match.</li>
+      <br>
+      <li><i class="fas fa-wifi"></i> Connection issues or crashes are your responsibility (except for game bugs).</li>
+      <br>
+      <li><i class="fas fa-door-closed"></i> No room hopping! Admins may sanction with a lost match.</li>
+    </ol>
+    <br>
+    <br>
 
-      <!-- Rules Content -->
-      <div id="rules" style="display: none;">
-        <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
-       
-        <h2><strong>Rules</strong></h2>
-        <br>
-        <p>Here are the rules for the Big Tipper Tournament:</p>
-        <ol>
-          <li>Teams must consist of 3 players.</li>
-          <li>All matches will be played on the specified maps.</li>
-          <li>Cheating or exploiting bugs will result in disqualification.</li>
-          <li>Respect all players and organizers.</li>
-        </ol>
-      </div>
+    <h2><strong><i class="fas fa-pencil-alt"></i> Registration</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-check-circle"></i> Register with a team for bracket placement or waitlist.</li>
+      <br>
+      <li><i class="fas fa-user-check"></i> All team members must be present at the start time.</li>
+      <br>
+      <li><i class="fas fa-envelope"></i> Team invites must be accepted to count.</li>
+    </ul>
+    <br>
+  <br>
 
-      <!-- Teams Content -->
-      <div id="teams" style="display: none;">
-        <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
-       
-        <h2><strong>Registered Teams</strong></h2>
+
+    <h2><strong><i class="fas fa-clipboard-check"></i> Check In</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-calendar-alt"></i> Check in before the tournament start time.</li>
+      <br>
+      <li><i class="fas fa-exclamation-circle"></i> Failure to check in may disqualify your team.</li>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-ban"></i> Bans</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-shield-alt"></i> Power League: 3 Brawler bans per team.</li>
+      <br>
+      <li><i class="fas fa-blind"></i> Normal format: Optional double-blind bans (2 Brawlers).</li>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-gamepad"></i> Matches</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-envelope-open"></i> Match invites should be created by a player in the lobby. Ensure:</li>
+      <br>
+      <ul>
+        <li><i class="fas fa-tag"></i> Player sends invite link to teammates and opponents.</li>
         <br>
-        <p>Here are the teams that have registered so far:</p>
-        <ul>
-          <li>Team 1</li>
-          <li>Team 2</li>
-          <li>Team 3</li>
-          <li>Team 4</li>
-          <li>... (16 teams total)</li>
-        </ul>
-      </div>
+        <li><i class="fas fa-sign-out-alt"></i> Exit unrelated games/lobbies.</li>
+        <br>
+        <li><i class="fas fa-bell"></i> Disable Do Not Disturb and unmute notifications.</li>
+        <br>
+      </ul>
+    </ul>
+    <br>
+  <br>
+
+
+    <h2><strong><i class="fas fa-trophy"></i> Results</strong></h2>
+    <br>
+    <ul>
+      <li><i class="fas fa-check-double"></i> Results are recorded automatically by our team.</li>
+    </ul>
+    <br>
+  
+    <h2><strong><i class="fas fa-question-circle"></i> Any Issues?</strong></h2>
+    <ul>
+      <li><i class="fas fa-headset"></i> Contact admins via Discord by creating a ticket.</li>
+    </ul>
+  </div>
+<!-- Teams Content -->
+<div id="teams" style="display: none;">
+  <h1>-----------------------------------------------------------------------------------------------------------------------------------------------------</h1>
+  <h2><strong><i class="fas fa-users"></i> Registered Teams</strong></h2>
+  <br>
+  <p>Here are the teams that have registered so far:</p>
+  <br>
+  
+  <!-- Option 1: Display Teams (if you want to show a few teams) -->
+  <ul>
+    <li><i class="fas fa-user-friends"></i> Team 1</li>
+    <li><i class="fas fa-user-friends"></i> Team 2</li>
+    <li><i class="fas fa-user-friends"></i> Team 3</li>
+    <li><i class="fas fa-user-friends"></i> Team 4</li>
+    <li><i class="fas fa-ellipsis-h"></i> ... (16 teams total)</li>
+  </ul>
+  <br>
+
+  <!-- Option 2: Discord Button (to redirect to a specific channel) -->
+  <p>To view all registered teams, join our Discord server and check the <strong>#registered-teams</strong> channel:</p>
+  <br>
+  <a href="https://discord.com/channels/1336018712611782790/1350242733159088170" target="_blank" class="btn-discord">
+    <i class="fab fa-discord"></i> View Teams on Discord
+  </a>
+</div>
 
       <!-- Bracket Content -->
       <div id="bracket" style="display: none;">
@@ -673,6 +947,7 @@
     </div>
   </div>
 
+
   <!-- Footer -->
   <footer id="site-footer">
     <div class='external-section pt-48 pb-0'>
@@ -702,20 +977,21 @@
             <h3>Quick Links</h3>
             <hr class='c-divider --small'>
             <ul>
-              <li><a href="/">Home</a></li>
-              <li><a href="/tournaments">Tournaments</a></li>
-              <li><a href="/tournament-history">Tournament History</a></li>
-              <li><a href="/ranklist">Ranklist</a></li>
-              <li><a href="/contact">Contact</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="tournaments.html">Tournaments</a></li>
+              <li><a href="tournament-history.html">Tournament History</a></li>
+              <li><a href="ranklist.html">Ranklist</a></li>
+              <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
           <div class='col'>
             <h3>Socials</h3>
             <hr class='c-divider --small'>
             <ul>
-              <li><a href="https://twitter.com/bigtippertourneys">Twitter</a></li>
-              <li><a href="https://facebook.com/bigtippertourneys">Facebook</a></li>
-              <li><a href="https://discord.gg/bigtipper">Discord</a></li>
+              <li><a href="https://x.com/Bigtipperbs">Twitter</a></li>
+              <li><a href="https://twitch.tv/bigtipper_bs"</li>
+              <li><a href="https://youtube.com/@BigTipperBS">youtube</a></li>
+              <li><a href="https://discord.gg/bigtipperbs">Discord</a></li>
             </ul>
           </div>
         </div>
